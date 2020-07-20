@@ -37,7 +37,7 @@ switch (scelta) {
         break;
     default:
         difficolta = 100;
-
+        alert('inserimento non valido, giocherai a livello 0');
 }
 
 // CREO 16 NUMERI CASUALI SENZA DOPPIONI
@@ -62,9 +62,11 @@ while (numeriUtente.length < massimo && bomba == false) {
     if (trova(numeriPc, numeroUtente)) {
         bomba = true;
     } else if (trova(numeriUtente, numeroUtente)) {
-        alert('numero già inserito')
-    } else {
+        alert('numero già inserito');
+    } else if (numeroUtente > 0) {
         numeriUtente.push(numeroUtente);
+    } else  {
+        alert('numero non valido');
     }
 }
 console.log(numeriUtente);
