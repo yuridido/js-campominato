@@ -27,22 +27,14 @@ var difficolta = 100;
 var i = 1;
 var massimo = difficolta - 16;
 while (numeriPc.length < 16) {
-    numeriPc.push(random(1, massimo));
+    var numero;
+    numero = random(1, massimo);
+    if (trova(numeriPc, numero) == false) {
+        numeriPc.push(numero);
+        i++
+    }
 }
 console.log(numeriPc);
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -52,4 +44,15 @@ console.log(numeriPc);
 // FUNZIONI
 function random(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function trova(array, elemento) {
+    var i = 0
+    while(i < array.length) {
+        if (elemento == array[i]) {
+            return true
+        }
+        i++;
+    }
+    return false
 }
