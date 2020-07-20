@@ -22,16 +22,34 @@
 // CREO 2 ARRAY
 var numeriPc = [];
 var numeriUtente = [];
-var difficolta = 100;
+var scelta = parseInt(prompt('scegli livello difficoltà tra 0, 1, 2'));
+var difficolta;
+
+switch (scelta) {
+    case 0:
+        difficolta = 100;
+        break;
+    case 1:
+        difficolta = 80;
+        break;
+    case 2:
+        difficolta = 50;
+        break;
+    default:
+        difficolta = 100;
+
+}
+
 // CREO 16 NUMERI CASUALI SENZA DOPPIONI
 var i = 1;
 var massimo = difficolta - 16;
+console.log(massimo);
 while (numeriPc.length < 16) {
     var numeroRandom;
-    numeroRandom = random(1, massimo);
+    numeroRandom = random(1, difficolta);
     if (trova(numeriPc, numeroRandom) == false) {
         numeriPc.push(numeroRandom);
-        i++
+        i++;
     }
 }
 console.log(numeriPc);
@@ -51,6 +69,7 @@ while (numeriUtente.length < massimo && bomba == false) {
     }
 }
 
+console.log(numeriUtente);
 if (bomba == true) {
     alert('hai perso!');
 } else if (numeriUtente.length == massimo) {
