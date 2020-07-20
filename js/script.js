@@ -23,22 +23,41 @@
 var numeriPc = [];
 var numeriUtente = [];
 var difficolta = 100;
-// CREO 16 NUMERI CASUALI
+// CREO 16 NUMERI CASUALI SENZA DOPPIONI
 var i = 1;
 var massimo = difficolta - 16;
 while (numeriPc.length < 16) {
-    var numero;
-    numero = random(1, massimo);
-    if (trova(numeriPc, numero) == false) {
-        numeriPc.push(numero);
+    var numeroRandom;
+    numeroRandom = random(1, massimo);
+    if (trova(numeriPc, numeroRandom) == false) {
+        numeriPc.push(numeroRandom);
         i++
     }
 }
 console.log(numeriPc);
 
+// FACCIO INSERIRE NUMERO ALL'utente
+var numeroUtente;
+var bomba;
 
+while (numeriUtente.length < massimo && bomba == false) {
+    numeroUtente = parseInt(prompt('inserisci un numero'));
+    if (trovato(numeriPc, numeroUtente)) {
+        bomba == true;
+    } else if (trovato(numeriUtente, numeroUtente)) {
+        alert('numero già inserito')
+    } else {
+        numeriUtente.push(numeroUtente)
+    }
+}
 
-
+if (bomba == true) {
+    alert('hai perso!');
+} else if (numeriUtente.length == massimo) {
+    alert('hai vinto!!!');
+} else {
+    alert('yuri ha fatto qualche cazzata');
+}
 
 
 // FUNZIONI
