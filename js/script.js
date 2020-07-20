@@ -43,7 +43,6 @@ switch (scelta) {
 // CREO 16 NUMERI CASUALI SENZA DOPPIONI
 var i = 1;
 var massimo = difficolta - 16;
-console.log(massimo);
 while (numeriPc.length < 16) {
     var numeroRandom;
     numeroRandom = random(1, difficolta);
@@ -65,17 +64,16 @@ while (numeriUtente.length < massimo && bomba == false) {
     } else if (trova(numeriUtente, numeroUtente)) {
         alert('numero già inserito')
     } else {
-        numeriUtente.push(numeroUtente)
+        numeriUtente.push(numeroUtente);
     }
 }
-
 console.log(numeriUtente);
+
+// SEGNALO SE L'UTENTE HA VINTO/PERSO
 if (bomba == true) {
     alert('hai perso!');
 } else if (numeriUtente.length == massimo) {
     alert('hai vinto!!!');
-} else {
-    alert('yuri ha fatto qualche cazzata');
 }
 
 
@@ -85,12 +83,12 @@ function random(min, max) {
 }
 
 function trova(array, elemento) {
-    var i = 0
+    var i = 0;
     while(i < array.length) {
         if (elemento == array[i]) {
-            return true
+            return true;
         }
         i++;
     }
-    return false
+    return false;
 }
