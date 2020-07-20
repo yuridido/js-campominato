@@ -38,13 +38,13 @@ console.log(numeriPc);
 
 // FACCIO INSERIRE NUMERO ALL'utente
 var numeroUtente;
-var bomba;
+var bomba = false;
 
 while (numeriUtente.length < massimo && bomba == false) {
     numeroUtente = parseInt(prompt('inserisci un numero'));
-    if (trovato(numeriPc, numeroUtente)) {
-        bomba == true;
-    } else if (trovato(numeriUtente, numeroUtente)) {
+    if (trova(numeriPc, numeroUtente)) {
+        bomba = true;
+    } else if (trova(numeriUtente, numeroUtente)) {
         alert('numero già inserito')
     } else {
         numeriUtente.push(numeroUtente)
