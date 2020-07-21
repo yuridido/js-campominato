@@ -41,14 +41,12 @@ switch (scelta) {
 }
 
 // CREO 16 NUMERI CASUALI SENZA DOPPIONI
-var i = 1;
 var massimo = difficolta - 16;
 while (numeriPc.length < 16) {
     var numeroRandom;
     numeroRandom = random(1, difficolta);
     if (trova(numeriPc, numeroRandom) == false) {
         numeriPc.push(numeroRandom);
-        i++;
     }
 }
 console.log(numeriPc);
@@ -77,6 +75,8 @@ if (bomba == true) {
 } else if (numeriUtente.length == massimo) {
     alert('hai vinto!!!');
 }
+alert('sei riuscito ad inserire ' + numeriUtente.length + ' numeri');
+
 
 
 // FUNZIONI
